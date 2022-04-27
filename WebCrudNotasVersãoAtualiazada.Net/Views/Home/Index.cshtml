@@ -1,0 +1,44 @@
+﻿@model IEnumerable<WebCrudNotasVersãoAtualiazada.Net.Models.Aluno>
+@{
+    ViewBag.Title = "Inicio";
+
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <br />
+        @Html.ActionLink("Novo", "Agregar", new {  } , new { @class = "btn btn-success" })
+        <br /><br />
+        <table class="table table-striped table-striped table-bordered">
+            <tr>
+                <th>Codigo</th>
+                <th>Nome</th>
+                <th>Nota 1</th>
+                <th>Nota 2</th>
+                <th>Media</th>
+                <th>Mensagem</th>
+                <th colspan="2">Ações</th>
+            </tr>
+            @{
+
+                foreach (var item in Model)
+                {
+                        <tr>
+                            <td>@item.codigo</td>
+                            <td>@item.nome</td>
+                            <td>@item.nota1</td>
+                            <td>@item.nota2</td>
+                            <td>@item.notaFinal</td>
+                            <td>@item.mensagem</td>
+                            <td>
+                                @Html.ActionLink("Modificar", "Modificar", new { id = item.codigo }, new { @class = "btn btn-info" })
+                            </td>
+                            <td>
+                                @Html.ActionLink("Eliminar", "EliminarAlu", new { id = item.codigo }, new { @class = "btn btn-danger" })
+                            </td>
+                        </tr>
+                }
+            }
+        </table>
+    </div>
+</div>

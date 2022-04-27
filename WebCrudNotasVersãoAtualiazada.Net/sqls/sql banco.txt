@@ -1,0 +1,25 @@
+﻿if db_id('BancoAlunoNovo') is not null
+   begin
+	 use master
+	 drop database BancoAlunoNovo
+   end
+
+create database BancoAlunoNovo
+go
+
+use BancoAlunoNovo
+go
+
+create table Aluno(
+	codigo int identity primary key,
+	nome varchar(50),
+	nota1 integer,
+	nota2 integer
+)
+go
+
+insert into Aluno values('Samuel teste' , 12,15)
+
+select * from Aluno
+
+/* criar procedures se necessario depois no sql server */
